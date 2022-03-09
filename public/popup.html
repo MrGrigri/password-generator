@@ -28,8 +28,11 @@
 
       <h2>Atoms</h2>
 
-      <h3>Toggle</h3>
-      <pg-toggle toggle-label="Dark Mode"></pg-toggle>
+      <h3>Switch</h3>
+      <pg-switch>
+        <label slot="switch-label" for="toggle">Dark Mode</label>
+        <input slot="switch-control" id="toggle" />
+      </pg-switch>
 
       <h3>Range</h3>
       <pg-range range-min="2" range-max="50" range-step="1"></pg-range>

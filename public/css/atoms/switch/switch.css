@@ -40,12 +40,12 @@
   flex-direction: row-reverse;
 }
 
-.container__label {
+::slotted(label[slot='switch-label']) {
   font: 700 normal 12px / 24px 'Space Mono';
   color: var(--label-color);
 }
 
-.container__input {
+::slotted(input[slot='switch-control']) {
   box-sizing: border-box;
   position: relative;
   appearance: none;
@@ -62,24 +62,24 @@
     var(--transition-timing);
 }
 
-.container__input:checked {
+::slotted(input[slot='switch-control']:checked) {
   background-color: var(--input-background-color--checked);
 }
 
-.container__input:not(:checked):is(:hover, :focus) {
+::slotted(input[slot='switch-control']:not(:checked):is(:hover, :focus)) {
   background-color: var(--input-background-focus-color--not-checked);
 }
 
-.container__input:checked:is(:hover, :focus) {
+::slotted(input[slot='switch-control']:checked:is(:hover, :focus)) {
   background-color: var(--input-background-focus-color--checked);
 }
 
-.container__input:is(:focus, :focus-visible) {
+::slotted(input[slot='switch-control']:is(:focus, :focus-visible)) {
   outline: none;
   box-shadow: 0px 0px 0px var(--outline-thickness) var(--outline-color);
 }
 
-.container__input::after {
+::slotted(input[slot='switch-control'])::after {
   content: '';
   box-sizing: border-box;
   inset: 0 auto auto 0;
@@ -93,15 +93,15 @@
     transform var(--transition-duration) var(--transition-timing);
 }
 
-.container__input:checked::after {
+::slotted(input[slot='switch-control']:checked)::after {
   inset: 0 auto auto 24px;
   background-color: var(--knob-background-color--checked);
 }
 
-.container__input:not(:checked)::after {
+::slotted(input[slot='switch-control']:not(:checked))::after {
   background-color: var(--knob-background-color--not-checked);
 }
 
-.container__input:active::after {
+::slotted(input[slot='switch-control']:active)::after {
   transform: scale(0.875);
 }
