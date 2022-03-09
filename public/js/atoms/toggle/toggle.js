@@ -15,6 +15,20 @@ export class ToggleAtom extends HTMLElement {
   #ariaLabelText;
   #direction;
 
+  get checked() {
+    return this.#input.checked;
+  }
+  set checked(value) {
+    if (value !== true && value !== false) {
+      throw new Error(
+        `Value is of type ${typeof value} and not a boolean value`
+      );
+    }
+
+    this.#input.checked = value;
+    this.#setCheckedState();
+  }
+
   constructor() {
     super();
 
@@ -27,6 +41,11 @@ export class ToggleAtom extends HTMLElement {
     this.#addStyles();
     this.#addHtml();
     this.#addEventListeners();
+    this.#setCheckedState();
+  }
+
+  toggle() {
+    this.#input.checked = !this.#input.checked;
     this.#setCheckedState();
   }
 
