@@ -1,0 +1,107 @@
+:host {
+  --label-color: #686868;
+
+  --input-background-color--not-checked: #fafafa;
+  --input-background-focus-color--not-checked: #eeeeee;
+
+  --input-background-color--checked: #424242;
+  --input-background-focus-color--checked: #686868;
+
+  --input-border-color: #424242;
+  --input-border: 1px solid var(--input-border-color);
+  --input-height: 24px;
+  --input-width: calc(var(--input-height) * 2);
+  --input-border-radius: calc(var(--input-height) / 2);
+
+  --knob-background-color--not-checked: #424242;
+
+  --knob-background-color--checked: #fafafa;
+
+  --knob-size: 16px;
+
+  --transition-duration: 0.6s;
+  --transition-timing: cubic-bezier(0.2, 0.85, 0.32, 1.2);
+
+  --outline-color: #7cabf1;
+  --outline-thickness: 2px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container--ltr {
+  flex-direction: row;
+}
+
+.container--rtl {
+  flex-direction: row-reverse;
+}
+
+.container__label {
+  font: 700 normal 12px / 24px 'Space Mono';
+  color: var(--label-color);
+}
+
+.container__input {
+  box-sizing: border-box;
+  position: relative;
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  height: var(--input-height);
+  width: var(--input-width);
+  cursor: pointer;
+  background-color: var(--input-background-color--not-checked);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  transition: background-color var(--transition-duration)
+    var(--transition-timing);
+}
+
+.container__input:checked {
+  background-color: var(--input-background-color--checked);
+}
+
+.container__input:not(:checked):is(:hover, :focus) {
+  background-color: var(--input-background-focus-color--not-checked);
+}
+
+.container__input:checked:is(:hover, :focus) {
+  background-color: var(--input-background-focus-color--checked);
+}
+
+.container__input:is(:focus, :focus-visible) {
+  outline: none;
+  box-shadow: 0px 0px 0px var(--outline-thickness) var(--outline-color);
+}
+
+.container__input::after {
+  content: '';
+  box-sizing: border-box;
+  inset: 0 auto auto 0;
+  position: absolute;
+  display: block;
+  width: var(--knob-size);
+  height: var(--knob-size);
+  margin: 3px;
+  border-radius: var(--knob-size);
+  transition: inset var(--transition-duration) var(--transition-timing),
+    transform var(--transition-duration) var(--transition-timing);
+}
+
+.container__input:checked::after {
+  inset: 0 auto auto 24px;
+  background-color: var(--knob-background-color--checked);
+}
+
+.container__input:not(:checked)::after {
+  background-color: var(--knob-background-color--not-checked);
+}
+
+.container__input:active::after {
+  transform: scale(0.875);
+}

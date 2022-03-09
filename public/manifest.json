@@ -1,0 +1,16 @@
+{
+  "name": "Password Generator",
+  "description": "Simple password generator!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/icons/icon16.png",
+      "32": "/icons/icon32.png",
+      "48": "/icons/icon48.png",
+      "128": "/icon/icon128.png"
+    }
+  }
+}

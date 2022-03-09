@@ -1,0 +1,11 @@
+html {
+  min-height: var(--body-min-height);
+  min-width: var(--body-min-width);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font: normal 16px / 1.5 'Space Mono', monospace;
+  overflow: auto;
+}

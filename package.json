@@ -14,5 +14,8 @@
   "repository": {
     "url": "https://github.com/MrGrigri/password-generator"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/chrome": "^0.0.179"
+  }
 }
