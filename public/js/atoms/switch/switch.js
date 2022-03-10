@@ -13,7 +13,6 @@ export class SwitchAtom extends HTMLElement {
   }
 
   #container;
-  #label;
   #control;
   #direction;
 
@@ -25,7 +24,6 @@ export class SwitchAtom extends HTMLElement {
     this.#validateAttributes();
     this.#addStyles();
     this.#addHtml();
-    this.#setLabel();
     this.#setSwitch();
 
     this.#handleControl();
@@ -97,15 +95,6 @@ export class SwitchAtom extends HTMLElement {
     slot.name = SwitchAtom.SlotNames.Control;
 
     return slot;
-  }
-
-  #setLabel() {
-    const labelSlot = this.#container.querySelector(
-      `[name="${SwitchAtom.SlotNames.Label}"]`
-    );
-    this.#label = labelSlot
-      .assignedElements()
-      .find((elem) => elem.tagName.toLowerCase() === 'label');
   }
 
   #setSwitch() {
