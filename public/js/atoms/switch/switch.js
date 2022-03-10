@@ -1,5 +1,5 @@
 export class SwitchAtom extends HTMLElement {
-  static get RequiredAttributes() {
+  static get OptionalAttributes() {
     return {
       Direction: 'switch-direction',
     };
@@ -33,7 +33,7 @@ export class SwitchAtom extends HTMLElement {
 
   #validateAttributes() {
     this.#direction = this.getAttribute(
-      SwitchAtom.RequiredAttributes.Direction
+      SwitchAtom.OptionalAttributes.Direction
     );
 
     if (
@@ -42,7 +42,7 @@ export class SwitchAtom extends HTMLElement {
       this.#direction !== 'ltr'
     ) {
       throw new Error(
-        `Valid attributes for ${SwitchAtom.RequiredAttributes.Direction} are either ltr or rtl`
+        `Valid attributes for ${SwitchAtom.OptionalAttributes.Direction} are either ltr or rtl`
       );
     }
   }

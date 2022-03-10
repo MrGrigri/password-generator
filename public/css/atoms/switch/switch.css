@@ -66,17 +66,22 @@
   background-color: var(--input-background-color--checked);
 }
 
-::slotted(input[slot='switch-control']:not(:checked):is(:hover, :focus)) {
+::slotted(input[slot='switch-control']:not(:checked):not(:disabled):is(:hover, :focus)) {
   background-color: var(--input-background-focus-color--not-checked);
 }
 
-::slotted(input[slot='switch-control']:checked:is(:hover, :focus)) {
+::slotted(input[slot='switch-control']:checked:not(:disabled):is(:hover, :focus)) {
   background-color: var(--input-background-focus-color--checked);
 }
 
 ::slotted(input[slot='switch-control']:is(:focus, :focus-visible)) {
   outline: none;
   box-shadow: 0px 0px 0px var(--outline-thickness) var(--outline-color);
+}
+
+::slotted(input[slot='switch-control']:disabled) {
+  cursor: unset;
+  opacity: 0.5;
 }
 
 ::slotted(input[slot='switch-control'])::after {
