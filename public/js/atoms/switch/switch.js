@@ -24,7 +24,7 @@ export class SwitchAtom extends HTMLElement {
     this.#validateAttributes();
     this.#addStyles();
     this.#addHtml();
-    this.#setSwitch();
+    this.#setControl();
 
     this.#handleControl();
     this.#addEventListeners();
@@ -97,7 +97,7 @@ export class SwitchAtom extends HTMLElement {
     return slot;
   }
 
-  #setSwitch() {
+  #setControl() {
     const controlSlot = this.#container.querySelector(
       `[name="${SwitchAtom.SlotNames.Control}"]`
     );
