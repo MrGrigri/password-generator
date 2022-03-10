@@ -1,0 +1,19 @@
+:host {
+  --bounds-color: #686868;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.container__bounds {
+  font: 700 normal 12px / 24px 'Space Mono';
+  color: var(--bounds-color);
+}
+
+::slotted(input[slot='range-control']) {
+  flex: 1;
+}
